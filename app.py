@@ -30,11 +30,30 @@ class User(db.Model):
     breed = db.Column(db.String(100), nullable=False)
     age = db.Column(db.Integer, nullable=False)
     event = db.Column(db.String(100), nullable=False)
+class Service(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    title = db.Column(db.String(100), nullable=False)
+    date = db.Column(db.String(100), nullable=False)
+    time = db.Column(db.String(100), nullable=False)
+    description = db.Column(db.Text, nullable=False)
 
+with app.app_context():
+    db.create_all()
+
+    # Populate the database with sample data (Run only once)
+    if not Service.query.first():
+        services = [
+            Service(title="Agility Challenge", date="24-03-2025", time="10:00 am", description="Test your dog's ability to complete an obstacle course following the commands of its handler"),
+            Service(title="Obedience Trial", date="25-03-2025", time="12:00 am", description="Dog and handler perform a series of obedience exercises to demonstrate their training."),
+            Service(title="Best Costume Show", date="26-03-2025", time="12:00 am", description="Elegant Tails, Happy Hearts"),  
+        ]
+        db.session.add_all(services)
+        db.session.commit()
 
 @app.route('/')
 def home():
-    return render_template('index.html')
+    services = Service.query.all()
+    return render_template('index.html',services=services)
 @app.route('/events')
 def events():
     return render_template('events.html')
