@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dog Competition Registration</title>
+    <link rel="stylesheet" href="../static/css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+    <div class="main">
+        <nav>
+            <ul>
+
+                <li onclick="location:href='/schedule'"><a href="{{ url_for('schedule') }}" style="text-underline:none">Schedule</a></li>
+                <li onclick="location:href='/myevents'"><a href="{{ url_for('myevents') }}" style="text-underline:none">My Events</a></li>
+            </ul>
+        </nav>
+        <h1>Dog Competition Registration and Scheduling</h1>
+    </div>
+    </header>
+    
+
+    <div class="container">
+        <!-- Competition Overview -->
+        <section class="competition-overview">
+            <h2>Competition Categories</h2>
+            <div class="competition-category">
+                <span>Obedience Trials - Test your dog's training skills</span>
+                <button><a href="{{ url_for('register') }}" style="text-decoration:none">Join Event</a></button>
+            </div>
+            <div class="competition-category">
+                <span>Agility Challenge - Showcase your dog's agility and speed</span>
+                <button><a href="{{ url_for('register') }}" style="text-decoration:none">Join Event</a></button>
+            </div>
+            <div class="competition-category">
+                <span>Best Costume Show - Dress up your dog for fun</span>
+                <button><a href="{{ url_for('register') }}" style="text-decoration:none">Join Event</a></button>
+            </div>
+        </section>
+
+        <!-- Registration Form -->
+        <form id="registration-form" class="registration-form" method="POST">
+            <h2>Registration Form</h2>
+            <label>Dog's Name:</label>
+            <input type="text" id="dog-name" placeholder="Enter your dog's name">
+            <label>Breed:</label>
+            <input type="text" id="breed" placeholder="Enter breed">
+            <label>Age:</label>
+            <input type="number" id="age" placeholder="Enter age">
+            <label>Past Achievements:</label>
+            <input type="text" id="achievements" placeholder="Enter achievements">
+            <p>Registration Fee: ₹500</p>
+            <button onclick="submitRegistration()">Proceed to Payment<a href="../templates/payments.html"></a></button>
+        </from>
+
+        <!-- Payment Section -->
+        <section id="payment-section">
+            <h2>Payment</h2>
+            <p>Registration Fee: ₹500</p>
+            <button onclick="completePayment()"><a href="../templates/payments.html">pay now</a></button>
+        </section>
+    </div>
+    
+
+    <script src="../static/js/script.js"></script>
+</body>
+</html>

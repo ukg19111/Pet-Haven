@@ -1,0 +1,39 @@
+/* General Styles */
+body {
+    font-family: "Poppins", serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f9;
+    background: url('https://cdn.pixabay.com/photo/2016/12/13/05/15/puppy-1903313_1280.jpg') no-repeat center center/cover;
+    color: black;
+}
+
+h1, h2 {
+    text-align: center;
+    margin-top: 20px;
+    color: #333;
+}
+
+.container {
+    width: 80%;
+    margin: 20px auto;
+    background: #fff;
+    background: rgba(255,255,255,0.6);
+    border: 1px solid black;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+#my-events-list {
+    list-style: none;
+    padding: 0;
+}
+
+#my-events-list li {
+    margin: 10px 0;
+    padding: 10px;
+    background: #e7f3fe;
+    border-radius: 8px;
+    text-align: center;
+}

@@ -1,0 +1,52 @@
+<!-- HTML: Payments Section -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment Options</title>
+    <link rel="stylesheet" href="../static/css/payments.css">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="payment-container">
+        <h1>Choose Your Payment Method</h1>
+        
+        <form id="paymentForm">
+            <!-- UPI Payment Option -->
+            <div class="payment-option">
+                <input type="radio" id="upi" name="paymentMethod" value="upi" required>
+                <label for="upi">UPI</label>
+                <div class="payment-details" id="upiDetails" style="display: none;">
+                    <label for="upiId">Enter UPI ID:</label>
+                    <input type="text" id="upiId" placeholder="e.g., yourname@bank" required>
+                </div>
+            </div>
+
+            <!-- Net Banking Payment Option -->
+            <div class="payment-option">
+                <input type="radio" id="netbanking" name="paymentMethod" value="netbanking">
+                <label for="netbanking">Net Banking</label>
+                <div class="payment-details" id="netBankingDetails" style="display: none;">
+                    <label for="bank">Select Bank:</label>
+                    <select id="bank" required>
+                        <option value="">--Select a Bank--</option>
+                        <option value="SBI">State Bank of India</option>
+                        <option value="HDFC">HDFC Bank</option>
+                        <option value="ICICI">ICICI Bank</option>
+                        <option value="Axis">Axis Bank</option>
+                    </select>
+                </div>
+            </div>
+
+            
+
+            <button type="submit" class="submit-button">Submit Payment</button>
+        </form>
+
+        <div id="confirmation" class="confirmation-message"></div>
+    </div>
+
+    <script src="../static/js/payments.js"></script>
+</body>
+</html>
