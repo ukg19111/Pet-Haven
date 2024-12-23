@@ -36,14 +36,14 @@ class Service(db.Model):
     date = db.Column(db.String(100), nullable=False)
     time = db.Column(db.String(100), nullable=False)
     description = db.Column(db.Text, nullable=False)
-
 with app.app_context():
     db.create_all()
-
+    # db.session.query(Service).delete()
+    # db.session.commit()
     # Populate the database with sample data (Run only once)
     if not Service.query.first():
         services = [
-            Service(title="Agility Challenge", date="24-03-2025", time="10:00 am", description="Test your dog's ability to complete an obstacle course following the commands of its handler"),
+            Service(title="Agility Challenge", date="24-03-2025", time="10:00 am", description="Test your dog's ability to complete an obstacle course following the commands."),
             Service(title="Obedience Trial", date="25-03-2025", time="12:00 am", description="Dog and handler perform a series of obedience exercises to demonstrate their training."),
             Service(title="Best Costume Show", date="26-03-2025", time="12:00 am", description="Elegant Tails, Happy Hearts"),  
         ]

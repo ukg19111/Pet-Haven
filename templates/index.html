@@ -33,6 +33,7 @@
                   <p><strong>Date:</strong> {{ service.date }}</p>
                   <p><strong>Time: </strong> {{ service.time }}</p>
                   <p><strong>Description: </strong> {{ service.description }}</p>
+                  <button><a href="{{ url_for('register') }}" style="text-underline:none">Join Event</a></button>
                 </div>
                 {% else %}
                 <p>No services available</p>
