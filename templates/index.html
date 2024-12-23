@@ -9,61 +9,35 @@
 </head>
 <body>
     <header>
-    <div class="main">
-        <nav>
-            <ul>
-
-                <li onclick="location:href='/schedule'"><a href="{{ url_for('schedule') }}" style="text-underline:none">Schedule</a></li>
-                <li onclick="location:href='/myevents'"><a href="{{ url_for('myevents') }}" style="text-underline:none">My Events</a></li>
-            </ul>
-        </nav>
-        <h1>Dog Competition Registration and Scheduling</h1>
-    </div>
+        <div class="main">
+            <nav>
+                <ul>
+                    <li><a href="{{ url_for('schedule') }}" style="text-decoration:none">Schedule</a></li>
+                    <li><a href="{{ url_for('myevents') }}" style="text-decoration:none">My Events</a></li>
+                </ul>
+            </nav>
+            <h1>Dog Competition Registration and Scheduling</h1>
+        </div>
     </header>
-    
 
     <div class="container">
-        <!-- Competition Overview -->
         <section class="competition-overview">
             <h2>Competition Categories</h2>
             <div class="cards">
                 {% for service in services %}
                 <div class="card">
-                  <h3>{{ service.title }}</h3>
-                  <p><strong>Date:</strong> {{ service.date }}</p>
-                  <p><strong>Time: </strong> {{ service.time }}</p>
-                  <p><strong>Description: </strong> {{ service.description }}</p>
-                  <button><a href="{{ url_for('register') }}" style="text-underline:none">Join Event</a></button>
+                    <h3>{{ service.title }}</h3>
+                    <p><strong>Date:</strong> {{ service.date }}</p>
+                    <p><strong>Time: </strong> {{ service.time }}</p>
+                    <p><strong>Description: </strong> {{ service.description }}</p>
+                    <button><a href="{{ url_for('register', service_id=service.id) }}" style="text-decoration:none">Join Event</a></button>
                 </div>
                 {% else %}
                 <p>No services available</p>
                 {% endfor %}
-              </div>
-        </section>
-
-        <!-- Registration Form -->
-        <form id="registration-form" class="registration-form" method="POST">
-            <h2>Registration Form</h2>
-            <label>Dog's Name:</label>
-            <input type="text" id="dog-name" placeholder="Enter your dog's name">
-            <label>Breed:</label>
-            <input type="text" id="breed" placeholder="Enter breed">
-            <label>Age:</label>
-            <input type="number" id="age" placeholder="Enter age">
-            <label>Past Achievements:</label>
-            <input type="text" id="achievements" placeholder="Enter achievements">
-            <p>Registration Fee: ₹500</p>
-            <button onclick="submitRegistration()">Proceed to Payment<a href="../templates/payments.html"></a></button>
-        </from>
-
-        <!-- Payment Section -->
-        <section id="payment-section">
-            <h2>Payment</h2>
-            <p>Registration Fee: ₹500</p>
-            <button onclick="completePayment()"><a href="../templates/payments.html">pay now</a></button>
+            </div>
         </section>
     </div>
-    
 
     <script src="../static/js/script.js"></script>
 </body>
