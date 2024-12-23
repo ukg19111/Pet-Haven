@@ -30,12 +30,14 @@ class User(db.Model):
     breed = db.Column(db.String(100), nullable=False)
     age = db.Column(db.Integer, nullable=False)
     event = db.Column(db.String(100), nullable=False)
+
 class Service(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     title = db.Column(db.String(100), nullable=False)
     date = db.Column(db.String(100), nullable=False)
     time = db.Column(db.String(100), nullable=False)
     description = db.Column(db.Text, nullable=False)
+
 with app.app_context():
     db.create_all()
     # db.session.query(Service).delete()
@@ -54,49 +56,44 @@ with app.app_context():
 def home():
     services = Service.query.all()
     return render_template('index.html',services=services)
+
 @app.route('/events')
 def events():
     return render_template('events.html')
+
 @app.route('/myevents')
 def myevents():
     return render_template('myevents.html')
+
 @app.route('/payments')
 def payments():
     return render_template('payments.html')
+
 @app.route('/schedule')
 def schedule():
     return render_template('schedule.html')
-@app.route('/register', methods=['GET','POST'])
+
+@app.route('/register', methods=['GET', 'POST'])
 def register():
-    # name = request.form['name']
-    # email = request.form['email']
+    if request.method == 'POST':
+        name = request.form.get('name')
+        breed = request.form.get('breed')
+        age = request.form.get('age')
 
-    # return render_template('register.html', name=name, email=email, breed=breed, age=age)
-        if request.method == 'POST':
-            event=request.form['event']
-            name = request.form['name']
-            # email = request.form['email']
-            breed = request.form['breed']
-            age = request.form['age']
+        # Add your validation and database logic here
+        if name and breed and age:  # Example validation
+            # Assume data is saved successfully
+            flash('Registration successful! Proceed to payment.', 'success')
+            # return redirect(url_for('payments'))  # Redirect to payments page
+        else:
+            flash('Invalid data. Please fill out the form correctly.', 'danger')
+            # return redirect(url_for('register'))
 
-            if not name or not breed or not age or not event:
-                flash("All fields are required!", "danger")
-                return render_template('register.html')
-        
-            try:
-                new_user = User(name=name, breed=breed, age=int(age), event=event)
-                db.session.add(new_user)
-                db.session.commit()
-                flash("Registration successfull!", "success")
-                return redirect(url_for('home'))
-            except Exception as e:
-                flash(f"Error: {e}", "danger")
-                return redirect(url_for('register'))
-    
-        return render_template('register.html')
+    return render_template('register.html')
 
 with app.app_context():
     db.create_all()
 
 if __name__ == '__main__':
     app.run(debug=True)
+
