@@ -11,8 +11,7 @@
     <h1>Dog Competition Registration</h1>
 
     <div class="container">
-        <h2>Register Your Dog</h2>
-        
+        <h2>Register Your Dog for {{service.title}}</h2>
         <form id="registration-form" method="POST" action="{{ url_for('register', service_id=service.id) }}">
             {% with messages = get_flashed_messages(with_categories=true) %}
                 {% if messages %}
@@ -54,7 +53,7 @@
                    title="Age cannot be negative" 
                    required>
 
-            <p>Registration Fee: ₹500</p>
+            <p style="font-weight:400">Registration Fee: ₹500</p>
 
             <button type="submit">Proceed to Payment</button>
         </form>
