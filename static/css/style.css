@@ -1,25 +1,25 @@
 /* General Styles */
 body {
     font-family: "Poppins", serif;
-  font-weight: 100;
+    font-weight: 100;
     margin: 0;
     padding: 0;
     background-color: #f4f4f9;
     background: url(./d1.jpg) no-repeat center center/cover;
     color: black;
-}
-
-h1 {
+  }
+  
+  h1 {
     text-align: center;
     color: #333;
-}
-nav ul {
+  }
+  nav ul {
     list-style: none;
     text-align: center;
     margin-top: 25px;
-}
-
-nav ul li {
+  }
+  
+  nav ul li {
     display: inline-block;
     margin-right: 20px;
     cursor: pointer;
@@ -28,23 +28,20 @@ nav ul li {
     border: 1px solid transparent;
     transition: 0.6s ease;
     font-weight: bold;
-}
-
-nav ul li a {
+  }
+  
+  nav ul li a {
     text-decoration: none;
-
-}
-nav ul li :hover{
+  }
+  nav ul li :hover {
     background-color: #24d930;
     color: #000;
-
-}
-nav ul li.active a{
+  }
+  nav ul li.active a {
     background-color: #5adf35;
     color: #000;
-
-}
-.cards {
+  }
+  .cards {
     display: flex;
     gap: 20px;
     justify-content: center;
@@ -53,14 +50,14 @@ nav ul li.active a{
   }
   
   .card {
-    background: rgba(255,255,255,0.6);
-    border: 1px solid #ddd;
+    background: rgba(255, 255, 255, 0.6);
+    border: 1.5px solid black;
     border-radius: 8px;
     padding: 25px;
     width: 300px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     text-align: center;
-    font-weight:500;
+    font-weight: 500;
   }
   
   .card h3 {
@@ -72,75 +69,69 @@ nav ul li.active a{
   }
   
   .card a {
-    display: inline-block;
-    margin-top: 10px;
+    display: flex;
     background-color: #4caf50;
     color: white;
-    padding: 10px 15px;
+    padding: 10px 10px;
     border-radius: 5px;
     text-decoration: none;
     cursor: pointer;
     transition: background-color 0.3s ease, transform 0.3s ease;
   }
   
+  .card button {
+    background-color: #4caf50;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    text-align: center;
+  }
+  
   .card a:hover {
     background-color: #45a049;
     transform: scale(1.05);
-  }  
-.main{
+  }
+  .main {
     max-width: 1200px;
     margin: auto;
-}
-
-
-.container {
+  }
+  
+  .container {
     text-align: center;
-}
-
-
-/* Competition Overview */
-.competition-overview {
+  }
+  
+  /* Competition Overview */
+  .competition-overview {
     margin-bottom: 30px;
-}
-
-.competition-category {
+  }
+  
+  .competition-category {
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin: 10px 0;
-    padding: 10px;
-    background: #e7f3fe;
     border-radius: 8px;
-}
-
-.competition-category button {
-    background: #28a745;
-    color: #fff;
-    border: none;
-    padding: 8px 12px;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 14px;
-}
-
-.competition-category button:hover {
+  }
+  
+  .competition-category button:hover {
     background: #218838;
-}
-
-/* Registration Form */
-.registration-form {
+  }
+  
+  /* Registration Form */
+  .registration-form {
     display: none;
     flex-direction: column;
-}
-
-.registration-form input {
+  }
+  
+  .registration-form input {
     margin: 10px 0;
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 5px;
-}
-
-.registration-form button {
+  }
+  
+  .registration-form button {
     padding: 10px;
     border: none;
     border-radius: 5px;
@@ -148,25 +139,25 @@ nav ul li.active a{
     color: #fff;
     cursor: pointer;
     font-size: 16px;
-}
-
-.registration-form button:hover {
+  }
+  
+  .registration-form button:hover {
     background: #0056b3;
-}
-
-/* Payment Section */
-#payment-section {
+  }
+  
+  /* Payment Section */
+  #payment-section {
     display: none;
     text-align: center;
     margin-top: 20px;
-}
-
-#payment-section p {
+  }
+  
+  #payment-section p {
     font-size: 18px;
     margin-bottom: 15px;
-}
-
-#payment-section button {
+  }
+  
+  #payment-section button {
     background: #28a745;
     color: #fff;
     padding: 10px 20px;
@@ -174,8 +165,8 @@ nav ul li.active a{
     border-radius: 5px;
     cursor: pointer;
     font-size: 16px;
-}
-
-#payment-section button:hover {
+  }
+  
+  #payment-section button:hover {
     background: #218838;
-}
+  }
